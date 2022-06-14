@@ -15,7 +15,7 @@ Python 3.9.9
 $ cd
 $ mkdir sandbox
 $ cd sandbox
-$ git clone https://github.ibm.com/degenaro/oscal-exchange-protocol.git
+$ git clone https://github.com/degenaro/oscal-exchange-protocol.git
 $ cd oscal-exchange-protocol
 ```
 
