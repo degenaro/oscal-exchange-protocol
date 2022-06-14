@@ -1,0 +1,27 @@
+{
+  "assessment-results": {
+    "uuid": "e3fa1ee4-6abd-467f-b94b-05ee213553a4",
+    "metadata": {
+      "title": "Generic assessment-results created by trestle named ./assessment-results/x.",
+      "last-modified": "2022-05-16T16:37:11.211947-04:00",
+      "version": "0.0.0",
+      "oscal-version": "1.0.2"
+    },
+    "import-ap": {
+      "href": "REPLACE_ME"
+    },
+    "results": [
+      {
+        "uuid": "5942a85d-e6c9-4bc6-995b-14827a9ae1a5",
+        "title": "REPLACE_ME",
+        "description": "REPLACE_ME",
+        "start": "2022-05-16T16:37:11.211796-04:00",
+        "reviewed-controls": {
+          "control-selections": [
+            {}
+          ]
+        }
+      }
+    ]
+  }
+}

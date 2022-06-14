@@ -1,0 +1,79 @@
+{
+  "system-security-plan": {
+    "uuid": "9d41d507-1d4b-4355-a0b2-0d88af27c192",
+    "metadata": {
+      "title": "Generic system-security-plan created by trestle named X.",
+      "last-modified": "2022-05-18T08:39:05.310255-04:00",
+      "version": "0.0.0",
+      "oscal-version": "1.0.2"
+    },
+    "import-profile": {
+      "href": "#3b66c8da-66a2-47fa-83f7-1f9e774bf726"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "id": "REPLACE_ME"
+        }
+      ],
+      "system-name": "REPLACE_ME",
+      "description": "REPLACE_ME",
+      "security-sensitivity-level": "REPLACE_ME",
+      "system-information": {
+        "information-types": [
+          {
+            "title": "REPLACE_ME",
+            "description": "REPLACE_ME",
+            "confidentiality-impact": {
+              "base": "REPLACE_ME"
+            },
+            "integrity-impact": {
+              "base": "REPLACE_ME"
+            },
+            "availability-impact": {
+              "base": "REPLACE_ME"
+            }
+          }
+        ]
+      },
+      "security-impact-level": {
+        "security-objective-confidentiality": "REPLACE_ME",
+        "security-objective-integrity": "REPLACE_ME",
+        "security-objective-availability": "REPLACE_ME"
+      },
+      "status": {
+        "state": "operational"
+      },
+      "authorization-boundary": {
+        "description": "REPLACE_ME"
+      }
+    },
+    "system-implementation": {
+      "users": [
+        {
+          "uuid": "e7c096c9-7345-470f-8765-bc5b0ed7a473"
+        }
+      ],
+      "components": [
+        {
+          "uuid": "d0064494-f1e9-4dd9-a787-1e004155a0b5",
+          "type": "REPLACE_ME",
+          "title": "REPLACE_ME",
+          "description": "REPLACE_ME",
+          "status": {
+            "state": "under-development"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "REPLACE_ME",
+      "implemented-requirements": [
+        {
+          "uuid": "8ac1953d-128a-4179-b501-1a4b2cc49e63",
+          "control-id": "REPLACE_ME"
+        }
+      ]
+    }
+  }
+}

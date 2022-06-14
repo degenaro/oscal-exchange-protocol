@@ -1,0 +1,11 @@
+{
+  "catalog": {
+    "uuid": "bf11cb64-cec7-49f4-9815-ec04f99784ea",
+    "metadata": {
+      "title": "Generic catalog created by trestle named sample.",
+      "last-modified": "2022-05-09T07:59:38.490646-04:00",
+      "version": "0.0.0",
+      "oscal-version": "1.0.2"
+    }
+  }
+}

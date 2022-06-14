@@ -1,0 +1,17 @@
+{
+  "plan-of-action-and-milestones": {
+    "uuid": "50c15b7f-788b-43e2-bbc1-626cd7b64212",
+    "metadata": {
+      "title": "Generic plan-of-action-and-milestones created by trestle named sample.",
+      "last-modified": "2022-05-09T08:01:44.496220-04:00",
+      "version": "0.0.0",
+      "oscal-version": "1.0.2"
+    },
+    "poam-items": [
+      {
+        "title": "REPLACE_ME",
+        "description": "REPLACE_ME"
+      }
+    ]
+  }
+}
