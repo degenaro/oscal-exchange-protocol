@@ -16,10 +16,14 @@
 
 import json
 import logging
+import os
 
 from ruamel.yaml import YAML
 
 logger = logging.getLogger(__name__)
+
+dirname, filename = os.path.split(os.path.abspath(__file__))
+dirbase = dirname.removesuffix('app')
 
 
 class Helper():
@@ -27,8 +31,9 @@ class Helper():
 
     def __init__(self):
         """Initialize."""
+        filepath = os.path.join(dirname, 'app.yaml')
         yaml = YAML(typ='safe')
-        with open('./app.yaml', 'r') as f:
+        with open(filepath, 'r') as f:
             self.config = yaml.load(f)
 
     def get_version(self):
@@ -41,7 +46,7 @@ class Helper():
 
     def get_profile_phase_i(self):
         """Get profile phase i."""
-        fp = self.config['profile-phase-i']
+        fp = os.path.join(dirbase, self.config['profile-phase-i'])
         with open(fp, 'r') as f:
             jdata = json.load(f)
             if 'profile' in jdata:
@@ -52,7 +57,7 @@ class Helper():
 
     def get_ssp_phase_i(self):
         """Get ssp phase i."""
-        fp = self.config['ssp-phase-i']
+        fp = os.path.join(dirbase, self.config['ssp-phase-i'])
         with open(fp, 'r') as f:
             jdata = json.load(f)
             if 'system-security-plan' in jdata:
@@ -63,7 +68,7 @@ class Helper():
 
     def get_ssp_phase_ii(self):
         """Get ssp phase ii."""
-        fp = self.config['ssp-phase-ii']
+        fp = os.path.join(dirbase, self.config['ssp-phase-ii'])
         with open(fp, 'r') as f:
             jdata = json.load(f)
             if 'system-security-plan' in jdata:

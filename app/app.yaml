@@ -1,9 +1,9 @@
 ---
-app-version: 0.5.5
+app-version: 0.5.6
 
 profile-mnemonic: profile_mnemonic
 
-profile-phase-i: ../trestle.workspace/profiles/osco.0.1.39.checks.0.1.58/profile.json
+profile-phase-i: trestle.workspace/profiles/osco.0.1.39.checks.0.1.58/profile.json
 
-ssp-phase-i: ../trestle.workspace/system-security-plans/sample/system-security-plan.json
-ssp-phase-ii: ../trestle.workspace/system-security-plans/sample/system-security-plan.json
+ssp-phase-i: trestle.workspace/system-security-plans/sample/system-security-plan.json
+ssp-phase-ii: trestle.workspace/system-security-plans/sample/system-security-plan.json
