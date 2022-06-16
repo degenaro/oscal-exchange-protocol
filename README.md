@@ -1,4 +1,10 @@
-# oscal-exchange-protocol and scc-exchange-protocol
+# oscal-exchange-protocol
+
+## *Live demo*
+
+[live demo](https://oxp-swagger.nsn35y94ms7.us-south.codeengine.appdomain.cloud/docs)
+
+## *Install locally*
 
 **Check Python version**
 
