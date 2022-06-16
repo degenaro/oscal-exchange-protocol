@@ -19,7 +19,7 @@ import pathlib
 import sys
 import tempfile
 import uuid
-from typing import List
+from typing import List, Union
 
 from db import Db
 
@@ -107,7 +107,7 @@ async def add_catalog(catalog: UploadFile, token: str = depends_scheme):
 
 
 @app.put(
-    '/catalogs/{catalog-id}',
+    '/catalogs/catalog-id',
     tags=['Lifecycle: Catalogs'],
     response_model=str,
     description='Replace an OSCAL catalog in datastore.'
@@ -139,7 +139,7 @@ async def replace_catalog(catalog_id: str, catalog: UploadFile, token: str = dep
 
 
 @app.delete(
-    '/catalogs/{catalog-id}',
+    '/catalogs/catalog-id',
     tags=['Lifecycle: Catalogs'],
     response_model=str,
     description='Delete an OSCAL catalog from datastore.'
@@ -169,7 +169,7 @@ async def get_catalog_id_list():
 
 
 @app.get(
-    '/catalogs/{catalog-id}',
+    '/catalogs/catalog-id',
     tags=['Lifecycle: Catalogs'],
     response_model=str,
     description='Get an OSCAL catalog from datastore.'
@@ -224,7 +224,7 @@ async def add_profile(profile: UploadFile, token: str = depends_scheme):
 
 
 @app.put(
-    '/profiles/{profile-id}',
+    '/profiles/profile-id',
     tags=['Lifecycle: Profiles'],
     response_model=str,
     description='Replace an OSCAL profile in datastore.'
@@ -256,7 +256,7 @@ async def replace_profile(profile_id: str, profile: UploadFile, token: str = dep
 
 
 @app.delete(
-    '/profiles/{profile-id}',
+    '/profiles/profile-id',
     tags=['Lifecycle: Profiles'],
     response_model=str,
     description='Delete an OSCAL profile from datastore.'
@@ -286,7 +286,7 @@ async def get_profile_id_list():
 
 
 @app.get(
-    '/profiles/{profile-id}',
+    '/profiles/profile-id',
     tags=['Lifecycle: Profiles'],
     response_model=str,
     description='Get an OSCAL profile from datastore.'
@@ -335,7 +335,7 @@ async def add_component_definition(component_definition: UploadFile, token: str 
 
 
 @app.put(
-    '/component-definitions/{component-definition-id}',
+    '/component-definitions/component-definition-id',
     tags=['Lifecycle: Component Definitions'],
     response_model=str,
     description='Replace an OSCAL component-definition in datastore.'
@@ -369,7 +369,7 @@ async def replace_component_definition(
 
 
 @app.delete(
-    '/component-definitions/{component-definition-id}',
+    '/component-definitions/component-definition-id',
     tags=['Lifecycle: Component Definitions'],
     response_model=str,
     description='Delete an OSCAL component-definition from datastore.'
@@ -399,7 +399,7 @@ async def get_component_definition_id_list():
 
 
 @app.get(
-    '/component-definitions/{component-definition-id}',
+    '/component-definitions/component-definition-id',
     tags=['Lifecycle: Component Definitions'],
     response_model=str,
     description='Get an OSCAL component-definition from datastore.'
@@ -448,7 +448,7 @@ async def add_system_security_plan(system_security_plan: UploadFile, token: str 
 
 
 @app.put(
-    '/system-security-plans/{system-security-plan-id}',
+    '/system-security-plans/system-security-plan-id',
     tags=['Lifecycle: System Security Plans'],
     response_model=str,
     description='Replace an OSCAL system-security-plan in datastore.'
@@ -482,7 +482,7 @@ async def replace_system_security_plan(
 
 
 @app.delete(
-    '/system-security-plans/{system-security-plan-id}',
+    '/system-security-plans/system-security-plan-id',
     tags=['Lifecycle: System Security Plans'],
     response_model=str,
     description='Delete an OSCAL system-security-plan from datastore.'
@@ -512,7 +512,7 @@ async def get_system_security_plan_id_list():
 
 
 @app.get(
-    '/system-security-plans/{system-security-plan-id}',
+    '/system-security-plans/system-security-plan-id',
     tags=['Lifecycle: System Security Plans'],
     response_model=str,
     description='Get an OSCAL system-security-plan from datastore.'
@@ -561,7 +561,7 @@ async def add_assessment_plans(assessment_plan: UploadFile, token: str = depends
 
 
 @app.put(
-    '/assessment-plans/{assessment-plan-id}',
+    '/assessment-plans/assessment-plan-id',
     tags=['Lifecycle: Assessment Plans'],
     response_model=str,
     description='Replace an OSCAL assessment-plan in datastore.'
@@ -593,7 +593,7 @@ async def replace_assessment_plan(assessment_plan_id: str, assessment_plan: Uplo
 
 
 @app.delete(
-    '/assessment-plans/{assessment-plan-id}',
+    '/assessment-plans/assessment-plan-id',
     tags=['Lifecycle: Assessment Plans'],
     response_model=str,
     description='Delete an OSCAL assessment-plan from datastore.'
@@ -623,7 +623,7 @@ async def get_assessment_plan_id_list():
 
 
 @app.get(
-    '/assessment-plans/{assessment-plan-id}',
+    '/assessment-plans/assessment-plan-id',
     tags=['Lifecycle: Assessment Plans'],
     response_model=str,
     description='Get an OSCAL assessment-plan from datastore.'
@@ -672,7 +672,7 @@ async def add_assessment_results(assessment_results: UploadFile, token: str = de
 
 
 @app.put(
-    '/assessment-results/{assessment-results-id}',
+    '/assessment-results/assessment-results-id',
     tags=['Lifecycle: Assessment Results'],
     response_model=str,
     description='Replace an OSCAL assessment-results in datastore.'
@@ -706,7 +706,7 @@ async def replace_assessment_results(
 
 
 @app.delete(
-    '/assessment-results/{assessment-results-id}',
+    '/assessment-results/assessment-results-id',
     tags=['Lifecycle: Assessment Results'],
     response_model=str,
     description='Delete an OSCAL assessment-results from datastore.'
@@ -736,7 +736,7 @@ async def get_assessment_results_id_list():
 
 
 @app.get(
-    '/assessment-results/{assessment-results-id}',
+    '/assessment-results/assessment-results-id',
     tags=['Lifecycle: Assessment Results'],
     response_model=str,
     description='Get an OSCAL assessment-results from datastore.'
@@ -785,7 +785,7 @@ async def add_plan_of_action_and_milestones(plan_of_action_and_milestones: Uploa
 
 
 @app.put(
-    '/plan-of-action-and-milestones/{plan-of-action-and-milestones-id}',
+    '/plan-of-action-and-milestones/plan-of-action-and-milestones-id',
     tags=['Lifecycle: Plan of Action and Milestones'],
     response_model=str,
     description='Replace an OSCAL plan-of-action-and-milestones in datastore.'
@@ -819,7 +819,7 @@ async def replace_plan_of_action_and_milestones(
 
 
 @app.delete(
-    '/plan-of-action-and-milestones/{plan-of-action-and-milestones-id}',
+    '/plan-of-action-and-milestones/plan-of-action-and-milestones-id',
     tags=['Lifecycle: Plan of Action and Milestones'],
     response_model=str,
     description='Delete an OSCAL plan-of-action-and-milestones from datastore.'
@@ -849,7 +849,7 @@ async def get_plan_of_action_and_milestones_id_list():
 
 
 @app.get(
-    '/plan-of-action-and-milestones/{plan-of-action-and-milestones-id}',
+    '/plan-of-action-and-milestones/plan-of-action-and-milestones-id',
     tags=['Lifecycle: Plan of Action and Milestones'],
     response_model=str,
     description='Get an OSCAL plan-of-action-and-milestones from datastore.'
@@ -870,15 +870,18 @@ async def get_plan_of_action_and_milestones(plan_of_action_and_milestones_id: st
 
 
 @app.post(
-    '/profile/component/{pvp-component-id}',
+    '/profile/component/pvp-component-id',
     name='Policy Validation Point driven: get profiles by checks',
     tags=['Validation: phase I (profiles)'],
     response_model=List[Profile],
     description='Get list of profiles for the pvp-component.'
 )
-async def pvp_get_profiles(pvp_component_id: str, system_security_plan: SystemSecurityPlan = ssp_phase_i):
+async def pvp_get_profiles(pvp_component_id: str, system_security_plan: Union[UploadFile, None] = None):
     """Get OSCAL profiles for pvp component."""
     result = []
+    if system_security_plan:
+        logger.debug(f'ssp: {system_security_plan}')
+    # TBD: use SSP to filter profiles
     search_result = db.search_profiles(pvp_component_id)
     oscal_path = 'profile'
     # get a wrapped object
@@ -907,16 +910,20 @@ async def pap_put_profile(profile: Profile = profile_phase_i, token: str = depen
 
 
 @app.post(
-    '/system-security-plan/component/{pvp-component-id}',
+    '/system-security-plan/component/pvp-component-id',
     name='Policy Validation Point driven: get System Security Plans',
     tags=['Validation: phase II (system security plans)'],
     response_model=List[SystemSecurityPlan],
     description='Get list of system security plans for the pvp-component.'
 )
-async def pvp_get_system_security_plans(pvp_component_id: str, system_security_plan: SystemSecurityPlan = ssp_phase_ii):
+async def pvp_get_system_security_plans(pvp_component_id: str, system_security_plan: Union[UploadFile, None] = None):
     """Get OSCAL system security plans for pvp component."""
+    result = []
+    if system_security_plan:
+        logger.debug(f'ssp: {system_security_plan}')
     # TBD
-    return [ssp_phase_ii]
+    result = ssp_phase_ii
+    return result
 
 
 @app.post(
@@ -938,7 +945,7 @@ async def pap_put_system_security_plan(
 
 
 @app.post(
-    '/assessment-results/system-security-plan-id/{system-security-plan-id}',
+    '/assessment-results/system-security-plan-id/system-security-plan-id',
     tags=['Validation: results'],
     response_model=str,
     description='Add a assessment-results for pvp component.'
