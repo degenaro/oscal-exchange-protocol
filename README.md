@@ -2,7 +2,7 @@
 
 **Check Python version**
 
-It should be 3.8 or greater.
+It should be 3.9 or greater.
 
 ```
 $ python -V
