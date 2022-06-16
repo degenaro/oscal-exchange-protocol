@@ -945,7 +945,7 @@ async def pap_put_system_security_plan(
 
 
 @app.post(
-    '/assessment-results/system-security-plan-id/system-security-plan-id',
+    '/assessment-results/system-security-plan-id',
     tags=['Validation: results'],
     response_model=str,
     description='Add a assessment-results for pvp component.'
