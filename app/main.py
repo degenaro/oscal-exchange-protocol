@@ -210,6 +210,7 @@ async def add_profile(profile: UploadFile, token: str = depends_scheme):
         raise HTTPException(status_code=400, detail=f'Invalid {oscal_path} in file.')
     # extract profile_mnemonic
     key = helper.get_profile_mnemonic()
+    profile_mnemonic = None
     try:
         for prop in oscal.metadata.props:
             if prop.name == key:

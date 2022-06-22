@@ -353,5 +353,8 @@ class Db():
 
     def search_profiles(self, profile_mnemonic):
         """Search profiles."""
-        result = self._get_table_by_column('PROFILES', helper.get_profile_mnemonic(), profile_mnemonic)
+        table = 'PROFILES'
+        cname = helper.get_profile_mnemonic()
+        cvalue = profile_mnemonic
+        result = self._get_table_by_column(table, cname, cvalue)
         return result
