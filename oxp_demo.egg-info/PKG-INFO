@@ -1,0 +1,25 @@
+Metadata-Version: 2.2
+Name: oxp_demo
+Version: 1.0.0
+Summary: Demo of an OSCAL Exchange Protocol RESTful API based on Flask-RESTPlus
+Home-page: https://github.ibm.com/degenaro/oscal-exchange-protocol-swagger-prototype
+Author: IBM Research
+Keywords: rest restful api swagger openapi FastAPI compliance security oscal nist
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers :: System Administrators
+Classifier: Topic :: Security :: Application Frameworks
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+Requires-Dist: compliance-trestle
+Requires-Dist: fastapi>=0.73.0
+Requires-Dist: uvicorn[standard]
+Requires-Dist: pre-commit
+Requires-Dist: python-multipart
+Dynamic: author
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary

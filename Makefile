@@ -17,9 +17,12 @@
 .ONESHELL:
 SHELL := /bin/bash
 
+SOURCE_INIT = /tmp/venv.oxp
+SOURCE = $(SOURCE_INIT)/bin/activate
+
 all: run
 
-run: code-run
+run: code-run-async
 
 stop: docker-stop
 
@@ -35,37 +38,54 @@ docker-build:  docker-clean
 docker-run: docker-build
 	docker run -d --name mycontainer -p 8080:80 oxp-image
 	
-venv:
-	python -m venv venv.oxp
-	. ./venv.oxp/bin/activate
+.SILENT: clean-venv
+clean-venv:
+	@printf "$(BLUE)=> remove venv\n"
+	rm -fr $(SOURCE_INIT)
 
-pre-commit: 
+.SILENT: venv
+venv:
+	@printf "$(BLUE)=> create venv\n"
+	if [ ! -d $(SOURCE_INIT) ]; then \
+		python -m venv $(SOURCE_INIT); \
+		source $(SOURCE); \
+		pip install -r app/requirements.txt; \
+	fi
+
+pre-commit:
+	source $(SOURCE); \
 	pre-commit install
 
 pre-commit-update:
+	source $(SOURCE); \
 	pre-commit autoupdate
 
 install: venv
-	python -m pip install  --upgrade pip setuptools
+	source $(SOURCE); \
+	python -m pip install  --upgrade pip setuptools; \
 	python -m pip install . --upgrade --upgrade-strategy eager
 
 code-format: pre-commit-update
+	source $(SOURCE); \
 	pre-commit run yapf --all-files
 
 code-lint:
+	source $(SOURCE); \
 	pre-commit run flake8 --all-files
 
 code-run: install
-	cd app
+	source $(SOURCE); \
+	cd app; \
 	uvicorn main:app --reload --host 0.0.0.0
 
-code-run-daemon: install
-	cd app
+code-run-async: install
+	source $(SOURCE); \
+	cd app; \
 	uvicorn main:app --reload --host 0.0.0.0 &
 	
-clean:
+clean: clean-venv
 	rm -f app/oscal.sqlite
 	rm -fr oscal.sqlite
-	rm -fr venv.oxp
 	rm -fr oxp_demo.egg-info
 	rm -fr build
+	
